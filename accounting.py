@@ -1,3 +1,5 @@
+
+
 melon_cost = 1.00
 
 customer1_name = "Joe"
@@ -24,7 +26,22 @@ customer6_name = "Ashley"
 customer6_melons = 3
 customer6_paid = 2.00
 
-def who_underpaid(name, melons, paid):
+
+
+
+def who_underpaid(customer_payments):
+  '''calculate cost of melons and see who underpaid'''
+
+
+  payments = open(customer_payments)
+
+  for line in payments:
+    order = line.split('|')
+
+    full_name = order[1]
+
+    
+
   expected = melons * melon_cost
   if expected != paid:
     print(f"{name} paid ${paid:.2f},",
