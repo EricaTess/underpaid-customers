@@ -40,13 +40,26 @@ def who_underpaid(customer_payments):
 
     full_name = order[1]
 
-    
+    first_name = full_name.split(' ')[0]
 
-  expected = melons * melon_cost
-  if expected != paid:
-    print(f"{name} paid ${paid:.2f},",
-          f"expected ${expected:.2f}"
+
+    melons = float(order[2])
+
+    paid = float(order[3])
+
+
+    expected = melons * melon_cost
+    if expected != paid:
+      print(f"{first_name} paid ${paid:.2f},",
+            f"expected ${expected:.2f}"
           )
 
-who_underpaid(customer6_name, customer6_melons, customer6_paid)
+      if expected < paid:
+        print(f"{first_name} has overpaid for their melons.")
+
+      elif expected > paid:
+        print(f"{first_name} has underpaid for their melons.")
+  payments.close()
+
+who_underpaid("customer-orders.txt")
 
